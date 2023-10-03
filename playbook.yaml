@@ -1,1 +1,13 @@
+---
+- name: ansible-test
+  hosts: all
+  remote_user: ec2-user
+  become: true
+  become_method: sudo
 
+  tasks:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /home/ec2-user
+        state: directory
+        
